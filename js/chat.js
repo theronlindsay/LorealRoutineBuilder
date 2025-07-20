@@ -1,5 +1,5 @@
 /* Chat functionality and OpenAI integration */
-const OPENAI_API_KEY = env.OPENAI_API_KEY; // This should be set in your environment variables
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // This should be set in your environment variables
 /* Array to store conversation history */
 let conversationHistory = [
   {
