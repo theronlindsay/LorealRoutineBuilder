@@ -16,62 +16,70 @@
   </head>
 
   <body>
+    <!------- Header / Branding ------->
+    <header class="site-header">
+      <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
+      <h1 class="site-title">Smart Routine &amp; Product Advisor</h1>
+    </header>
+
     <div class="page-wrapper">
-      <!------- Header / Branding ------->
-      <header class="site-header">
-        <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
-        <h1 class="site-title">Smart Routine &amp; Product Advisor</h1>
-      </header>
+      <!-- Main Content Layout -->
+      <div class="main-content">
+        <!-- Products Section -->
+        <div class="products-section">
+          <!-- Category Filter -->
+          <div class="search-section">
+            <select id="categoryFilter">
+              <option value="" disabled selected>Choose a Category</option>
+              <option value="cleanser">Cleansers</option>
+              <option value="moisturizer">Moisturizers & Treatments</option>
+              <option value="haircare">Haircare</option>
+              <option value="makeup">Makeup</option>
+              <option value="hair color">Hair Color</option>
+              <option value="hair styling">Hair Styling</option>
+              <option value="men's grooming">Men's Grooming</option>
+              <option value="suncare">Suncare</option>
+              <option value="fragrance">Fragrance</option>
+            </select>
+          </div>
 
-      <!-- Category Filter -->
-      <div class="search-section">
-        <select id="categoryFilter">
-          <option value="" disabled selected>Choose a Category</option>
-          <option value="cleanser">Cleansers</option>
-          <option value="moisturizer">Moisturizers & Treatments</option>
-          <option value="haircare">Haircare</option>
-          <option value="makeup">Makeup</option>
-          <option value="hair color">Hair Color</option>
-          <option value="hair styling">Hair Styling</option>
-          <option value="men's grooming">Men's Grooming</option>
-          <option value="suncare">Suncare</option>
-          <option value="fragrance">Fragrance</option>
-        </select>
+          <!-- Products Grid -->
+          <div id="productsContainer" class="products-grid"></div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="chat-section">
+          <!-- Selected Products -->
+          <div class="selected-products">
+            <h2>Selected Products</h2>
+            <div id="selectedProductsList"></div>
+            <button id="generateRoutine" class="generate-btn">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Routine
+            </button>
+          </div>
+
+          <!------- Chat Area ------->
+          <section class="chatbox">
+            <h2>Let's Build Your Routine</h2>
+            <div id="chatWindow" class="chat-window"></div>
+
+            <form id="chatForm" class="chat-form">
+              <label for="userInput" class="visually-hidden">Message</label>
+              <input
+                id="userInput"
+                name="userInput"
+                type="text"
+                placeholder="Ask about skincare, haircare, makeup, or your routine…"
+                autocomplete="off"
+              />
+              <button type="submit" id="sendBtn">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span class="visually-hidden">Send</span>
+              </button>
+            </form>
+          </section>
+        </div>
       </div>
-
-      <!-- Products Grid -->
-      <div id="productsContainer" class="products-grid"></div>
-
-      <!-- Selected Products -->
-      <div class="selected-products">
-        <h2>Selected Products</h2>
-        <div id="selectedProductsList"></div>
-        <button id="generateRoutine" class="generate-btn">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Routine
-        </button>
-      </div>
-
-      <!------- Chat Area ------->
-      <section class="chatbox">
-        <h2>Let's Build Your Routine</h2>
-        <div id="chatWindow" class="chat-window"></div>
-
-        <form id="chatForm" class="chat-form">
-          <label for="userInput" class="visually-hidden">Message</label>
-          <input
-            id="userInput"
-            name="userInput"
-            type="text"
-            placeholder="Ask me about products or routines…"
-            autocomplete="off"
-            required
-          />
-          <button type="submit" id="sendBtn">
-            <i class="fa-solid fa-paper-plane"></i>
-            <span class="visually-hidden">Send</span>
-          </button>
-        </form>
-      </section>
 
       <!------- Footer Links ------->
       <footer class="site-footer">
@@ -87,6 +95,9 @@
 
     <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->
     <script src="secrets.js"></script>
-    <script src="script.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/tooltips.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
